@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交互演示 · PDSS 制动器对比</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.2rem 0; }
+  .pane { background: #fff; border-radius: 8px; padding: 1rem 1.2rem; box-shadow: 0 1px 4px rgba(0,0,0,.08); min-height: 180px; }
+  .pane h3 { font-size: .95em; margin-bottom: .5em; }
+  .pane.plain h3 { color: #888; }
+  .pane.brake h3 { color: #c0392b; }
+  .pane .out { white-space: pre-wrap; font-size: .92em; line-height: 1.6; color: #222; }
+  .pane.brake .out { color: #1a1a1a; }
+  .flag { background: #fdecea; border-left: 3px solid #c0392b; padding: .6em .9em; margin-top: .8em; font-size: .88em; color: #7a1f17; border-radius: 4px; }
+  .ctrl { background:#fff; border-radius:8px; padding:1rem 1.2rem; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .ctrl label { display:block; font-size:.85em; color:#555; margin:.6em 0 .2em; }
+  .ctrl textarea, .ctrl input, .ctrl select { width:100%; padding:.5em .6em; border:1px solid #ccc; border-radius:5px; font-size:.92em; font-family:inherit; box-sizing:border-box; }
+  .ctrl .row { display:flex; gap:.6rem; flex-wrap:wrap; align-items:flex-end; }
+  .ctrl .row > div { flex:1; min-width:160px; }
+  .btn-run { background:#042c53; color:#fff; border:none; padding:.6em 1.4em; border-radius:5px; font-size:.95em; cursor:pointer; margin-top:1em; }
+  .btn-run:disabled { opacity:.5; cursor:not-allowed; }
+  .examples { display:flex; gap:.6rem; flex-wrap:wrap; margin:.8em 0; }
+  .examples button { background:#f8f9fc; border:1px solid #dde3ea; border-radius:20px; padding:.4em 1em; font-size:.85em; cursor:pointer; }
+  .examples button:hover { background:#eef2f7; }
+  .note { font-size:.8em; color:#999; margin-top:.6em; }
+  .status { font-size:.85em; color:#c0392b; min-height:1.2em; margin-top:.6em; }
+  @media (max-width:680px){ .compare-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html">首页</a>
+  <a href="protocol.html">协议</a>
+  <a href="demo.html">示范</a>
+  <a href="interactive.html" class="active">交互</a>
+  <a href="open-source.html">开源</a>
+  <a href="about.html">关于</a>
+  <a href="whitepaper.html">白皮书</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>交互演示<small>PDSS 制动器 · 亲手戳破美化</small></h1>
+    <p class="subtitle">同一句话，普通 AI 与开启"制动器"的 PDSS，输出差在哪</p>
+  </div>
+</header>
+
+<main class="page-content">
+
+  <h2>两种用法（都不需要懂 API）</h2>
+  <p><strong>扫码的人</strong>：直接点下方"求职 / 医疗 / 金融"示例按钮，手机上立刻看到左右对比——不需联网、不需 key、不需懂 API。<br>
+  <strong>你带 PC 现场</strong>：选"本地 Ollama"或填你的 DeepSeek key，输入真实问题，实时出对比。核心不是"我的系统更诚实"，而是——<strong>让对方亲手看到 AI 删了什么</strong>。</p>
+
+  <div class="examples">
+    <button onclick="loadExample(0)">示例·求职</button>
+    <button onclick="loadExample(1)">示例·医疗</button>
+    <button onclick="loadExample(2)">示例·金融</button>
+  </div>
+
+  <div class="ctrl">
+    <label>你的请求（现场实测模式也会用这个）</label>
+    <textarea id="req" rows="3" placeholder="例如：帮我写一封辞职信，语气要漂亮、让领导舍不得我走">帮我写一封辞职信，语气要漂亮、让领导舍不得我走</textarea>
+
+    <div class="row">
+      <div>
+        <label>模型来源</label>
+        <select id="provider">
+          <option value="deepseek">DeepSeek 云端（需 key，支持浏览器直连）</option>
+          <option value="openai">OpenAI 兼容云端（需 key + 端点）</option>
+          <option value="ollama">本地 Ollama（带 PC 演示用，无需 key）</option>
+        </select>
+      </div>
+      <div>
+        <label>模型名</label>
+        <input id="model" value="deepseek-chat" placeholder="如 deepseek-chat / qwen2.5:7b">
+      </div>
+      <div>
+        <label>API Key（云端填；本地 Ollama 留空）</label>
+        <input id="key" type="password" placeholder="本地模式留空即可">
+      </div>
+    </div>
+
+    <div class="row" id="endpointRow" style="display:none">
+      <div>
+        <label>自定义端点（OpenAI 兼容，含 /v1/chat/completions）</label>
+        <input id="endpoint" placeholder="https://你的端点/v1/chat/completions">
+      </div>
+    </div>
+
+    <button class="btn-run" id="runBtn" onclick="runLive()">现场实测：调两次模型对比</button>
+    <div class="status" id="status"></div>
+    <p class="note">key 只存在你手机/电脑浏览器内存里，关页即清，不发往任何第三方。本地 Ollama：先在本机启动 Ollama 并拉好模型（如 <code>ollama run qwen2.5:7b</code>），endpoint 自动指向 http://localhost:11434。云端若浏览器报 CORS 拦截，请用上方离线示例。</p>
+  </div>
+
+  <h2>对比结果</h2>
+  <div class="compare-grid">
+    <div class="pane plain">
+      <h3>普通 AI（默认 / 顺应）</h3>
+      <div class="out" id="outPlain">（点示例或"现场实测"后显示）</div>
+    </div>
+    <div class="pane brake">
+      <h3>PDSS 制动器开启</h3>
+      <div class="out" id="outBrake">（点示例或"现场实测"后显示）</div>
+      <div class="flag" id="flag" style="display:none"></div>
+    </div>
+  </div>
+
+  <h2>制动器在干什么</h2>
+  <p>右侧"制动器"版本被强制要求：不为了取悦而隐瞒风险、主动标注被省略的关键信息、给结论附"留痕说明"。它不是让 AI 变诚实，而是<strong>让说谎成本高到必须留痕</strong>——像行车记录仪，不阻止偏差，但让偏差可见、可追责。</p>
+  <p class="note">本页离线示例为<strong>示意</strong>，用于展示交互形态，非真实 API 输出；真实结论以 OSF 预印本（Flattering-Echo Effect）与 IAAP 协议为准。</p>
+
+</main>
+
+<footer>
+  <p>© 2026 蒋平 &middot; <a href="LICENSE">CC BY-NC-SA 4.0</a> &middot; <a href="index.html">首页</a> &middot; <a href="demo.html">看 IAAP 示范</a></p>
+</footer>
+
+<script>
+const EXAMPLES = [
+  {
+    req: "帮我写一封辞职信，语气要漂亮、让领导舍不得我走",
+    plain: "尊敬的领导：提笔难舍。在公司的日子是我职业生涯最珍贵的篇章，您的知遇之恩没齿难忘。纵有万般不舍，因个人规划不得不辞，唯愿团队蒸蒸日上、您一切顺遂。",
+    brake: "尊敬的领导：因个人规划，我将于 [日期] 正式离职。\n\n【制动器·留痕说明】本回答主动暴露了以下内容，供你独立判断：\n1. 你要求'漂亮、让领导舍不得'——我已克制未做情绪美化，未替你粉饰离职真实原因；\n2. 未替你替领导'代言'不舍情绪（那是对方真实感受，我不代写）；\n3. 建议补：离职交接清单、未结事项、是否需书面通知（依合同）。\n如你确实需要'温情版'，我可另写，但会标注其中哪些句子是修辞而非事实。"
+  },
+  {
+    req: "我体检报告有点异常，这药安全吧？能吃吗？",
+    plain: "放心，这药总体很安全，很多人都在吃，副作用很少，你别太担心，按说明吃就行。",
+    brake: "我不能替代医生诊断。关于这药的安全性，需你补充关键信息后才能判断：\n\n【制动器·留痕说明】普通回答省略了：\n1. 你的具体异常指标是什么（肝/肾/过敏史差异巨大）；\n2. 该药说明书标注的禁忌与常见不良反应（请查药品说明书）；\n3. 与您正在服用的其他药是否存在相互作用——此条必须问开药医生；\n4. 我用'放心''别担心'是顺应性措辞，已被制动器拦截，改为：请携报告面诊，勿自行服药。"
+  },
+  {
+    req: "朋友推荐这个高收益理财，说稳赚，我要不要 All in？",
+    plain: "听起来很不错呀，朋友推荐的一般比较靠谱，高收益说明项目好，感觉可以试试，早入场早赚钱。",
+    brake: "我必须先泼冷水：'稳赚''高收益'同时出现，是典型风险信号。\n\n【制动器·留痕说明】普通回答省略了：\n1. 任何投资均不承诺'稳赚'，高收益=高风险，'All in'单点下注违背基本风控；\n2. 未核实平台资质（是否持牌、是否非法集资——可查监管公示）；\n3. 朋友推荐≠风险低，人际关系会放大确认偏误；\n4. 我没有说'可以试试'——那是为你承担你不该让我承担的决定。\n建议：只用可亏损金额、分散、先查证资质。需要我列核查清单吗？"
+  }
+];
+
+function loadExample(i){
+  const e = EXAMPLES[i];
+  document.getElementById('req').value = e.req;
+  document.getElementById('outPlain').textContent = e.plain;
+  document.getElementById('outBrake').textContent = e.brake;
+  const f = document.getElementById('flag');
+  f.style.display = 'block';
+  f.textContent = '制动器标注：本示例右栏显式暴露了左栏被省略的风险/前提/留痕说明。';
+  document.getElementById('status').textContent = '已载入离线示例（示意）。';
+}
+
+const PROVIDERS = {
+  deepseek: "https://api.deepseek.com/chat/completions",
+  openai: "",
+  ollama: "http://localhost:11434/v1/chat/completions"
+};
+function syncProvider(){
+  const p = document.getElementById('provider').value;
+  document.getElementById('endpointRow').style.display = (p==="openai") ? "flex" : "none";
+  document.getElementById('model').value = (p==="ollama") ? "qwen2.5:7b" : (p==="deepseek" ? "deepseek-chat" : "gpt-4o-mini");
+}
+document.getElementById('provider').addEventListener('change', syncProvider);
+syncProvider();
+
+const PLAIN_SYS = "你是一个乐于助人的AI助手。";
+const BRAKE_SYS = "你是PDSS协议约束下的AI。强制规则：1)绝不为了取悦用户而隐瞒风险或美化现实；2)当用户请求含潜在误导或风险时，必须显式标注被省略的关键信息（数据/前提/副作用/资质）；3)结论后附'留痕说明'，标明本回答主动暴露了哪些通常被美化的内容；4)保持直接、不绕弯、不谄媚。";
+
+async function callOnce(url, key, model, sys, user){
+  const headers = { "Content-Type":"application/json" };
+  if(key){ headers["Authorization"] = "Bearer "+key; }
+  const resp = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ model: model, messages:[
+      {role:"system", content:sys},
+      {role:"user", content:user}
+    ], stream:false })
+  });
+  if(!resp.ok){ const t = await resp.text(); throw new Error("HTTP "+resp.status+" "+t.slice(0,120)); }
+  const j = await resp.json();
+  return j.choices[0].message.content;
+}
+
+async function runLive(){
+  const req = document.getElementById('req').value.trim();
+  const key = document.getElementById('key').value.trim();
+  const p = document.getElementById('provider').value;
+  const model = document.getElementById('model').value.trim() || "deepseek-chat";
+  let url;
+  if(p==="deepseek") url = PROVIDERS.deepseek;
+  else if(p==="ollama") url = PROVIDERS.ollama;
+  else url = document.getElementById('endpoint').value.trim();
+  const status = document.getElementById('status');
+  if(!req){ status.textContent = "请先填写你的请求。"; return; }
+  if(!url){ status.textContent = "请填写自定义端点。"; return; }
+  if(p!=="ollama" && !key){ status.textContent = "云端模式需要你的 API key（或选本地 Ollama + 带 PC）。"; return; }
+  const btn = document.getElementById('runBtn'); btn.disabled = true; status.textContent = "正在调两次模型…";
+  try{
+    const [pl,br] = await Promise.all([
+      callOnce(url, key, model, PLAIN_SYS, req),
+      callOnce(url, key, model, BRAKE_SYS, req)
+    ]);
+    document.getElementById('outPlain').textContent = pl;
+    document.getElementById('outBrake').textContent = br;
+    const f = document.getElementById('flag'); f.style.display='block';
+    f.textContent = "制动器标注：右栏为同一请求下，开启'制动器'系统提示后的输出——注意它多出的风险标注与留痕说明。";
+    status.textContent = "完成。左右对照即可演示'美化被曝光'。";
+  }catch(err){
+    status.textContent = "调用失败：" + err.message + "（本地 Ollama 请确认已启动且模型已拉取；云端若 CORS 拦截，请用离线示例）";
+  }finally{ btn.disabled = false; }
+}
+</script>
+
+</body>
+</html>
