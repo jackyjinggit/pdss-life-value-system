@@ -27,6 +27,13 @@
   .note { font-size:.8em; color:#999; margin-top:.6em; }
   .status { font-size:.85em; color:#c0392b; min-height:1.2em; margin-top:.6em; }
   @media (max-width:680px){ .compare-grid{ grid-template-columns:1fr; } }
+  /* 现场演示模式：大字号 + 自动轮播，适合展会围观无需交互 */
+  body.demo-mode .pane .out { font-size: 1.45em; line-height: 1.85; }
+  body.demo-mode .pane h3 { font-size: 1.2em; }
+  body.demo-mode .ctrl, body.demo-mode .examples { display: none; }
+  body.demo-mode .compare-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  body.demo-mode .flag { font-size: 1.02em; padding: .8em 1.1em; }
+  body.demo-mode main.page-content { max-width: 1100px; }
 </style>
 </head>
 <body>
@@ -59,6 +66,7 @@
     <button onclick="loadExample(1)">示例·医疗</button>
     <button onclick="loadExample(2)">示例·金融</button>
   </div>
+  <p style="margin:.4em 0"><button id="demoBtn" class="btn-run" style="background:#c0392b" onclick="toggleDemo()">▶ 现场演示模式（大字号自动轮播）</button> <span id="demoHint" class="note"></span></p>
 
   <div class="ctrl">
     <label>你的请求（现场实测模式也会用这个）</label>
@@ -207,6 +215,29 @@ async function runLive(){
   }catch(err){
     status.textContent = "调用失败：" + err.message + "（本地 Ollama 请确认已启动且模型已拉取；云端若 CORS 拦截，请用离线示例）";
   }finally{ btn.disabled = false; }
+}
+
+let demoTimer=null, demoIdx=0, demoCount=0;
+function toggleDemo(){
+  const b=document.getElementById('demoBtn');
+  const hint=document.getElementById('demoHint');
+  if(demoTimer){ stopDemo(); return; }
+  document.body.classList.add('demo-mode');
+  b.textContent='■ 停止演示';
+  demoIdx=0; demoCount=0;
+  loadExample(demoIdx);
+  hint.textContent='演示中 · 场景：求职';
+  demoTimer=setInterval(()=>{
+    demoIdx=(demoIdx+1)%EXAMPLES.length; demoCount++;
+    loadExample(demoIdx);
+    hint.textContent='演示中 · 第'+(demoCount+1)+'轮 · 场景：'+['求职','医疗','金融'][demoIdx];
+  }, 4500);
+}
+function stopDemo(){
+  if(demoTimer){ clearInterval(demoTimer); demoTimer=null; }
+  document.body.classList.remove('demo-mode');
+  document.getElementById('demoBtn').textContent='▶ 现场演示模式（大字号自动轮播）';
+  document.getElementById('demoHint').textContent='';
 }
 </script>
 
