@@ -146,6 +146,19 @@ main { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem; }
 }
 .placeholder p { color: var(--muted); font-size: 1rem; }
 
+/* White paper CTA band */
+.whitepaper-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border-radius: 2px;
+  margin-bottom: 3rem;
+}
+.whitepaper-cta h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.6rem; }
+.whitepaper-cta p { opacity: 0.85; font-size: 0.95rem; margin-bottom: 1.4rem; }
+.whitepaper-cta .cta-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
 /* Footer */
 footer {
   text-align: center;
