@@ -159,6 +159,29 @@ main { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem; }
 .whitepaper-cta p { opacity: 0.85; font-size: 0.95rem; margin-bottom: 1.4rem; }
 .whitepaper-cta .cta-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
 
+/* Top nav (统一导航骨架，杜绝孤岛页) */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 0.55rem 1.5rem;
+  display: flex;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.topnav a {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.15rem 0;
+  white-space: nowrap;
+}
+.topnav a:hover { color: #fff; }
+.topnav a.active { color: #fff; font-weight: 600; border-bottom: 2px solid #fff; }
+
 /* Footer */
 footer {
   text-align: center;
