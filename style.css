@@ -53,6 +53,15 @@ body {
   line-height: 1.6;
 }
 .hero-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+.hero-hook {
+  margin: 1.8rem auto 0;
+  max-width: 580px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #fff;
+  opacity: 0.92;
+}
+.hero-hook strong { font-weight: 600; letter-spacing: 0.02em; }
 .btn {
   display: inline-block;
   padding: 0.65rem 1.8rem;
