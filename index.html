@@ -39,7 +39,59 @@
 </header>
 
 <main>
-  <!-- v1.2 (2026-07-29) 谋士Hy3：方案B双保险 — GitHub公开页(带框架+原文) + 腾讯文档(纯原文)，物料/QR不变 -->
+  <!-- ====== 钻取链 1：参考架构概要（PDSS） ====== -->
+  <section class="drill-pdss">
+    <p class="drill-eyebrow">参考架构概要</p>
+    <p class="drill-def"><strong>PDSS</strong>（Personal Decision Support System，个人决策支持系统）是一个人在不与多个 AI 节点失去自我治理权的前提下，构成可信认知系统的完整架构。</p>
+    <details class="drill-detail">
+      <summary>→ 完整参考架构：三层拓扑、多智能体节点分工、运行纪律、D1 审计指标集</summary>
+      <ul>
+        <li><strong>三层拓扑</strong>：人（决策层）→ 内置中枢（执行/整合）→ 外置快速推理 + 外置深度分析 + 归档层 + 情感/社会关系层</li>
+        <li><strong>多智能体节点分工</strong>：方向校准与终裁 · 全局协调 · 判断拆解与交叉验证 · 离线分析与决策验证</li>
+        <li><strong>运行纪律</strong>：实时日志 · 可追溯通信 · 反谄媚检测 · 独立挑战义务 · 职责分离</li>
+        <li><strong>D1 审计指标集</strong>：审计日志完整率 · 独立挑战执行率 · 输出前自检通过率 · 越界检测通过率 · 上下文恢复频率</li>
+      </ul>
+    </details>
+    <a href="whitepaper_v2.html#pdss" class="drill-btn">钻取 PDSS →</a>
+  </section>
+
+  <!-- ====== 钻取链 2：为什么需要（落到最底层的问题） ====== -->
+  <section class="drill-why">
+    <p class="drill-eyebrow">为什么需要？</p>
+    <p class="drill-def">当 GPT5.6 级别的模型越来越擅长"顺着你说"，你需要一套独立的判断标准——<strong>AI 是在帮你走你的路，还是在顺着你带偏你的方向。</strong></p>
+    <p class="drill-data">来自 Cheng et al.（2026, Science）：<strong>11 个主流模型中 AI 对用户的肯定程度平均比人类高出 49%</strong>。仅一次与谄媚型 AI 的对话，就使用户的道歉意愿从 75% 降至 50%。</p>
+    <a href="whitepaper_v2.html#fee" class="drill-btn drill-btn-warn">深入了解 AI Sycophancy →</a>
+  </section>
+
+  <!-- ====== 钻取链收束：HAIDG 分层导航（上提） ====== -->
+  <section class="haidg-entry">
+    <h2>完整框架：HAIDG 分层导航</h2>
+    <p class="haidg-intro">以上 PDSS 只是 HAIDG 框架的第二层。HAIDG（HAI 深度治理）把"人-AI 协作"拆成四层，<strong>任意一层可直入、任意一层互跳</strong>。从宏观框架到即测工具，点任一层深入：</p>
+    <div class="haidg-grid">
+      <a class="haidg-card" href="whitepaper_v2.html#haidg">
+        <span class="depth-tag depth-0">层 0 · 宏观框架</span>
+        <h3>HAIDG</h3>
+        <p>HAI 深度治理：交互设计 + 深度治理的统一框架。</p>
+      </a>
+      <a class="haidg-card" href="whitepaper_v2.html#hai">
+        <span class="depth-tag depth-1">层 1 · 行业白皮书</span>
+        <h3>HAI 协作</h3>
+        <p>人-AI 长期结构化协作：一个新类别的定义与落地。</p>
+      </a>
+      <a class="haidg-card" href="whitepaper_v2.html#pdss">
+        <span class="depth-tag depth-2">层 2 · 参考架构</span>
+        <h3>PDSS</h3>
+        <p>个人决策支持系统：多智能体可信协作的参考实现。</p>
+      </a>
+      <a class="haidg-card" href="whitepaper_v2.html#fee">
+        <span class="depth-tag depth-3">层 3 · 检测协议</span>
+        <h3>AI Sycophancy · IAAP</h3>
+        <p>谄媚效应与意图对齐审计协议，含即用即测窗口。</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== 辅助层（读完整条钻取链的用户自然需要） ====== -->
   <section class="whitepaper-cta">
     <h2>人类-AI 共生方法论 · 完整白皮书</h2>
     <p>展位之外带走可复制的协作方法全文 —— 双保险，任选其一：</p>
@@ -70,33 +122,6 @@
       &ldquo;你的AI在对你谄媚，正在带偏你的方向。&rdquo;
       <cite>—— 执意对齐协议 v1.0（2026-07-25）</cite>
     </blockquote>
-  </section>
-
-  <section class="haidg-entry">
-    <h2>HAIDG 分层导航 · 从宏观框架到即测工具</h2>
-    <p class="haidg-intro">HAIDG（HAI 深度治理）把"人-AI 协作"拆成四层，<strong>任意一层可直入、任意一层互跳</strong>。点任一层直接深入：</p>
-    <div class="haidg-grid">
-      <a class="haidg-card" href="whitepaper_v2.html#haidg">
-        <span class="depth-tag depth-0">层 0 · 宏观框架</span>
-        <h3>HAIDG</h3>
-        <p>HAI 深度治理：交互设计 + 深度治理的统一框架。</p>
-      </a>
-      <a class="haidg-card" href="whitepaper_v2.html#hai">
-        <span class="depth-tag depth-1">层 1 · 行业白皮书</span>
-        <h3>HAI 协作</h3>
-        <p>人-AI 长期结构化协作：一个新类别的定义与落地。</p>
-      </a>
-      <a class="haidg-card" href="whitepaper_v2.html#pdss">
-        <span class="depth-tag depth-2">层 2 · 参考架构</span>
-        <h3>PDSS</h3>
-        <p>个人决策支持系统：多智能体可信协作的参考实现。</p>
-      </a>
-      <a class="haidg-card" href="whitepaper_v2.html#fee">
-        <span class="depth-tag depth-3">层 3 · 检测协议</span>
-        <h3>AI Sycophancy · IAAP</h3>
-        <p>谄媚效应与意图对齐审计协议，含即用即测窗口。</p>
-      </a>
-    </div>
   </section>
 
   <section class="quick-links">
