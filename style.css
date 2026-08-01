@@ -62,6 +62,9 @@ body {
   opacity: 0.92;
 }
 .hero-hook strong { font-weight: 600; letter-spacing: 0.02em; }
+.hook-lead { max-width: 760px; margin: 2.5rem auto; padding: 0 1.5rem; text-align: center; }
+.hook-lead p { font-size: 1.25rem; line-height: 1.85; color: var(--accent); }
+.hook-lead strong { font-weight: 600; letter-spacing: 0.02em; }
 .btn {
   display: inline-block;
   padding: 0.65rem 1.8rem;
