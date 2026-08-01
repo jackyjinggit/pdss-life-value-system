@@ -204,3 +204,40 @@ footer {
   border-top: 1px solid var(--border);
 }
 footer a { color: var(--muted); }
+
+/* HAIDG 分层导航入口（首页 index.html） */
+.haidg-entry { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+.haidg-entry h2 { font-size: 1.5rem; color: var(--accent); text-align: center; margin-bottom: 0.5rem; }
+.haidg-intro { text-align: center; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7; }
+.haidg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.haidg-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.3rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s;
+}
+.haidg-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: var(--accent-light); }
+.haidg-card h3 { font-size: 1.15rem; margin: 0.5rem 0 0.4rem; color: var(--accent); }
+.haidg-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; }
+.depth-0 { --d: #1a3a4a; }
+.depth-1 { --d: #2a5a3a; }
+.depth-2 { --d: #3a2a5a; }
+.depth-3 { --d: #5a3a2a; }
+.haidg-card { border-left: 4px solid var(--d); }
+.depth-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background: var(--d);
+}
+@media (max-width: 600px) {
+  .haidg-grid { grid-template-columns: 1fr; }
+}
