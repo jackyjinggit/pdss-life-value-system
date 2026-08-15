@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>蒋平 (Jacky Jiang) · 致招聘团队</title>
+<style>
+  :root{
+    /* DeepSeek 黑鲸鱼哲学：深邃黑底 + 鲸鱼蓝冷光 + 冷白文字 */
+    --bg:#08090D;
+    --bg-2:#0C0E14;
+    --whale:#3B6EF5;
+    --whale-deep:#16307A;
+    --whale-bright:#5B8CFF;
+    --ink:#ECECF1;
+    --ink-soft:#9CA0AC;
+    --card:#121319;
+    --card-2:#16181F;
+    --line:#24262F;
+    --shadow:0 10px 36px rgba(0,0,0,.55);
+    --glow:0 8px 30px rgba(59,110,245,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+    color:var(--ink);
+    line-height:1.65;
+    padding-bottom:64px;
+  }
+  .hero{
+    background:radial-gradient(circle at 22% 22%,rgba(59,110,245,.20),transparent 48%),
+               radial-gradient(circle at 82% 18%,rgba(91,140,255,.12),transparent 42%),
+               linear-gradient(160deg,#06070B 0%,#0B0D14 60%,#06070B 100%);
+    color:var(--ink);
+    padding:58px 22px 50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 40% at 50% 120%,rgba(22,48,122,.45),transparent 70%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
+  .badge{
+    display:inline-block;background:rgba(59,110,245,.12);
+    border:1px solid rgba(91,140,255,.40);
+    padding:5px 14px;border-radius:999px;font-size:13px;letter-spacing:.5px;margin-bottom:16px;color:var(--whale-bright);
+  }
+  .hero h1{font-size:34px;font-weight:800;letter-spacing:.5px;margin-bottom:10px;color:#fff;text-shadow:0 2px 18px rgba(59,110,245,.35);}
+  .hero .sub{font-size:16px;opacity:.94;max-width:620px;margin:0 auto 8px;color:#D6D9E2;}
+  .hero .meta{font-size:13px;opacity:.72;margin-top:14px;color:var(--ink-soft);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 18px;}
+  .card{
+    background:linear-gradient(180deg,var(--card) 0%,var(--card-2) 100%);
+    border:1px solid var(--line);border-radius:18px;
+    padding:26px 26px;margin:18px 0;box-shadow:var(--shadow);
+  }
+  .card h2{font-size:20px;color:var(--whale-bright);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+  .card h3{font-size:15px;color:var(--ink);margin:16px 0 6px;font-weight:700;}
+  .card p,.card li{font-size:14.5px;color:var(--ink-soft);}
+  .card ul{margin:6px 0 6px 20px;}
+  .card li{margin:4px 0;}
+  .en{color:#6E7280;font-style:italic;font-size:13.5px;}
+  .contact{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:10px;font-size:14px;}
+  .contact span{background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:10px;color:var(--ink);}
+  .pill{display:inline-block;background:linear-gradient(135deg,var(--whale-deep),var(--whale));color:#fff;font-size:12px;padding:2px 10px;border-radius:999px;margin-right:6px;}
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px;}
+  .link{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:.2s;color:var(--ink);}
+  .link:hover{transform:translateY(-2px);box-shadow:var(--glow);border-color:rgba(91,140,255,.55);background:linear-gradient(180deg,var(--card-2),rgba(22,48,122,.20));}
+  .link .t{font-weight:700;color:var(--whale-bright);font-size:14.5px;}
+  .link .u{font-size:12px;color:var(--ink-soft);word-break:break-all;margin-top:3px;}
+  .foot{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:36px;padding:0 18px;}
+  .switch{text-align:center;margin:26px 0 4px;}
+  .switch a{color:var(--whale-bright);text-decoration:none;font-size:14px;border:1px solid var(--line);padding:8px 16px;border-radius:999px;transition:.2s;}
+  .switch a:hover{border-color:rgba(91,140,255,.55);box-shadow:var(--glow);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge">致招聘团队 · For Recruiters</div>
+    <h1>蒋平 (Jacky Jiang)</h1>
+    <p class="sub">AI 产品设计师 · 个人 AI 协作系统架构师 · 个人 DSS（Personal Decision Support System）独立构建者</p>
+    <p class="sub en">I build the "handrail" layer on top of any Agent Harness — the cognitive calibration that keeps agents from going rogue, harming users, or leaving them stranded.</p>
+    <p class="meta">重庆 · 8/18–20 在杭州（AI Hangzhou 2026）· GitHub @jackyjinggit</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="switch"><a href="dsh-for-founders.html">看另一版：致创始与工程团队 →</a></div>
+
+  <div class="card">
+    <h2>个人简介</h2>
+    <p>独立研究者与产品设计师，专注"人如何真正用得起、信得过、不被骗着用 AI"。自 2024 年起构建并持续运行个人 AI 协作系统（个人 DSS，Personal Decision Support System），把多节点协议、认知校准、长期记忆与对齐检测做成可插拔的 Skill + Orchestrator。主导开源项目、行业白皮书与学术论文，具备从产品哲学到工程落地的全链路能力。</p>
+  </div>
+
+  <div class="card">
+    <h2>求职意向</h2>
+    <p>AI 产品经理 / 产品设计师 / 开发者关系（亦可胜任研发工程师、项目经理）</p>
+    <div style="margin-top:8px">
+      <span class="pill">AI Product Manager</span><span class="pill">Product Designer</span><span class="pill">Developer Relations</span><span class="pill">Research Engineer</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>核心能力</h2>
+    <h3>产品与体验</h3>
+    <ul><li>AI 产品哲学、体验设计（心流化）、人机协作方法论、用户主权设计</li></ul>
+    <h3>系统与治理</h3>
+    <ul><li>Agent 编排、对齐协议设计、权限边界与审计、跨窗口长期记忆、自检闸门</li></ul>
+    <h3>工程落地</h3>
+    <ul><li>Python / Node / Shell / JSON / 插件与协议开发；多运行时（WorkBuddy / opencode / Claude Code）适配</li></ul>
+    <h3>社区与内容</h3>
+    <ul><li>开源运营、技术白皮书撰写、知乎系列、冷启动外联</li></ul>
+  </div>
+
+  <div class="card">
+    <h2>项目经历</h2>
+    <h3>1. 个人 DSS — 个人决策支持系统（2024.06–至今）</h3>
+    <ul>
+      <li>设计个人决策支持工作平台，含身份治理、多节点协作、强制自检、反谄臣检测、跨运行时治理 agent</li>
+      <li>产出并开源：HAI 人机协作白皮书 v1.2、反谄臣论文（OSF）、IAAP 对齐协议、xuanlan-governance-kit</li>
+    </ul>
+    <h3>2. xuanlan-governance-kit — 跨运行时治理 agent（2026.08）</h3>
+    <ul>
+      <li>公开版治理检测包，已在 WorkBuddy / opencode / Claude Code 落地；含架构合规检测器、脱敏闸门、版本指针索引</li>
+      <li>GitHub: github.com/jackyjinggit/xuanlan-governance-kit</li>
+    </ul>
+    <h3>3. HAI 人机协作行业白皮书 v1.2 final（2026）</h3>
+    <ul><li>行业级方法论文档，已上线 GitHub / Gitee</li></ul>
+    <h3>4. 反谄臣（FEE）论文（2026）</h3>
+    <ul><li>针对 AI 谄媚/附和偏差的量化研究，OSF 存档（节点 6jdhm），基于 800+ 轮真实对话实测</li></ul>
+  </div>
+
+  <div class="card">
+    <h2>研究与工作经历</h2>
+    <ul>
+      <li>独立研究者 · 个人 AI 协作者系统设计师（2024–至今）</li>
+      <li>前游戏 UX 设计：沈书 / 猫箱 AI 高定方案</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>教育背景</h2>
+    <ul>
+      <li>吉林大学 · 机械工程与自动化 · 肄业（2012–2016）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>研究 / 写作样本</h2>
+    <h3>《仿生人会梦见电子羊吗？》的伪问题框架研究</h3>
+    <ul>
+      <li>以菲利普·K·迪克科幻经典为对象，提出"伪问题框架"概念工具，解释小说为何悬置书名之问而不答</li>
+      <li>形式分析视角：意义不来自命题真值，而来自命题被悬置所组织的叙事张力</li>
+      <li>关键词：菲利普·K·迪克 · 伪问题 · 叙事张力 · 社会凝视</li>
+    </ul>
+    <p class="en" style="margin-top:8px">相关写作见知乎专栏 → <a href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">zhihu.com/column/c_2064223181343347973</a></p>
+  </div>
+
+  <div class="card">
+    <h2>技能与语言</h2>
+    <ul>
+      <li>工程：Python / Node / Shell / JSON / 协议设计</li>
+      <li>设计：产品哲学 / 体验设计 / 信息架构</li>
+      <li>语言：中文（母语）、英语（可读写技术文献，六级）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>可验证成果（点开即查）</h2>
+    <div class="links">
+      <a class="link" href="https://github.com/jackyjinggit/pdss-life-value-system" target="_blank" rel="noopener">
+        <div class="t">HAI 人机协作白皮书 v1.2 final</div>
+        <div class="u">github.com/jackyjinggit/pdss-life-value-system</div>
+      </a>
+      <a class="link" href="https://osf.io/6jdhm" target="_blank" rel="noopener">
+        <div class="t">反谄臣（FEE）论文（OSF 6jdhm）</div>
+        <div class="u">osf.io/6jdhm · 800+ 轮实测</div>
+      </a>
+      <a class="link" href="https://github.com/jackyjinggit/xuanlan-governance-kit" target="_blank" rel="noopener">
+        <div class="t">xuanlan-governance-kit</div>
+        <div class="u">跨运行时治理 agent + 架构合规检测</div>
+      </a>
+      <a class="link" href="https://jackyjinggit.github.io/pdss-life-value-system/" target="_blank" rel="noopener">
+        <div class="t">个人 DSS / IAAP 公开入口</div>
+        <div class="u">jackyjinggit.github.io/pdss-life-value-system</div>
+      </a>
+      <a class="link" href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener">
+        <div class="t">知乎 · 治理与 AI 协作系列</div>
+        <div class="u">zhihu.com/column/c_2064223181343347973</div>
+      </a>
+      <a class="link" href="https://weibo.com/u/3069897487" target="_blank" rel="noopener">
+        <div class="t">微博 · 观点与动态</div>
+        <div class="u">weibo.com/u/3069897487</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>联系方式</h2>
+    <div class="contact">
+      <span>✉️ q1070845860@hotmail.com</span>
+      <span>📱 +86 13272820623</span>
+      <span>💻 GitHub @jackyjinggit</span>
+      <span>📖 <a href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">知乎专栏</a></span>
+      <span>🐦 <a href="https://weibo.com/u/3069897487" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">微博</a></span>
+    </div>
+    <p class="en" style="margin-top:12px">本页为公开索引，内容脱敏，不含内部节点名与本地路径。对外口径守蒋平裁定：PDSS 对外只称「个人 DSS（Personal Decision Support System）」，不展开内部黑话。</p>
+  </div>
+
+  <p class="foot">蒋平 (Jacky Jiang) · 个人 DSS 独立构建者 · 致招聘团队版 · 2026-08-16</p>
+</div>
+</body>
+</html>
