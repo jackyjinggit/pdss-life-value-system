@@ -87,7 +87,7 @@
     <h1>蒋平 (Jacky Jiang)</h1>
     <p class="sub">AI 产品设计师 · 个人 AI 协作系统架构师 · 个人 DSS（Personal Decision Support System）独立构建者</p>
     <p class="sub en">I build the "handrail" layer on top of any Agent Harness — the cognitive calibration that keeps agents from going rogue, harming users, or leaving them stranded.</p>
-    <p class="meta">重庆 · 8/18–20 在杭州（AI Hangzhou 2026）· GitHub @jackyjinggit</p>
+    <p class="meta">重庆 · 可远程 / 出差 · GitHub @jackyjinggit</p>
   </div>
 </header>
 
@@ -113,7 +113,7 @@
     <h3>产品与体验</h3>
     <ul><li>AI 产品哲学、体验设计（心流化）、人机协作方法论、用户主权设计</li></ul>
     <h3>系统与治理</h3>
-    <ul><li>Agent 编排、对齐协议设计、权限边界与审计、跨窗口长期记忆、自检闸门</li></ul>
+    <ul><li>Agent 编排、对齐协议设计、权限边界与审计、跨窗口长期记忆、自检闸门、验证门控（外部验证才宣布完成）</li></ul>
     <h3>工程落地</h3>
     <ul><li>Python / Node / Shell / JSON / 插件与协议开发；多运行时（WorkBuddy / opencode / Claude Code）适配</li></ul>
     <h3>社区与内容</h3>
@@ -125,16 +125,21 @@
     <h3>1. 个人 DSS — 个人决策支持系统（2024.06–至今）</h3>
     <ul>
       <li>设计个人决策支持工作平台，含身份治理、多节点协作、强制自检、反谄臣检测、跨运行时治理 agent</li>
-      <li>产出并开源：HAI 人机协作白皮书 v1.2、反谄臣论文（OSF）、IAAP 对齐协议、xuanlan-governance-kit</li>
+      <li>产出并开源：HAI 人机协作白皮书 v1.2、反谄臣论文（OSF）、IAAP 对齐协议、xuanlan-governance-kit、co-agency-integrity</li>
     </ul>
-    <h3>2. xuanlan-governance-kit — 跨运行时治理 agent（2026.08）</h3>
+    <h3>2. co-agency-integrity — 认知免疫工具包（2026.08）</h3>
+    <ul>
+      <li>反谄媚 / 认知免疫开源工具箱，MIT 许可，v0.2.0；含国内 TSA（RFC3161）时间戳证据</li>
+      <li>GitHub: github.com/jackyjinggit/co-agency-integrity</li>
+    </ul>
+    <h3>3. xuanlan-governance-kit — 跨运行时治理 agent（2026.08）</h3>
     <ul>
       <li>公开版治理检测包，已在 WorkBuddy / opencode / Claude Code 落地；含架构合规检测器、脱敏闸门、版本指针索引</li>
       <li>GitHub: github.com/jackyjinggit/xuanlan-governance-kit</li>
     </ul>
-    <h3>3. HAI 人机协作行业白皮书 v1.2 final（2026）</h3>
+    <h3>4. HAI 人机协作行业白皮书 v1.2 final（2026）</h3>
     <ul><li>行业级方法论文档，已上线 GitHub / Gitee</li></ul>
-    <h3>4. 反谄臣（FEE）论文（2026）</h3>
+    <h3>5. 反谗臣（FEE）论文 v3.4（2026）</h3>
     <ul><li>针对 AI 谄媚/附和偏差的量化研究，OSF 存档（节点 6jdhm），基于 800+ 轮真实对话实测</li></ul>
   </div>
 
@@ -144,6 +149,19 @@
       <li>独立研究者 · 个人 AI 协作者系统设计师（2024–至今）</li>
       <li>前游戏 UX 设计：沈书 / 猫箱 AI 高定方案</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>游戏行业视角：SOP 即标准化协作</h2>
+    <p>SOP（Standard Operating Procedure，标准操作程序）是把复杂事务拆解为清晰、可重复步骤的"说明书"——确保团队高效、一致地交付，而非靠个人经验临场发挥。这也是我作为前游戏 UX 最熟悉的协作语言。</p>
+    <h3>在游戏行业，SOP 贯穿产品全生命周期，四个场景尤为关键</h3>
+    <ul>
+      <li><b>开发</b>：从概念、原型、关卡、数值到测试发布的全流程指南；以及环境搭建、引擎配置、版本管理等具体操作规范。</li>
+      <li><b>运营</b>：上线前准备与测试、上线后版本更新、活动策划、社区管理、玩家反馈处理的标准化。</li>
+      <li><b>电竞</b>：为特定局面（视野控制、资源争夺）制定标准化战术与应对解法。</li>
+      <li><b>管理</b>：降低"关键人物"风险——当关键任务只有一人会做时，SOP 让任何人接手都有章可循。</li>
+    </ul>
+    <p>一句话：游戏语境下的 SOP，就是把"怎么做"标准化、文档化，把团队精力从重复踩坑释放到创造性工作。我做的个人 DSS，本质也是同一件事——把"人如何安心用 AI"做成可插拔、可复用的协议层，而非靠某一人盯着。</p>
   </div>
 
   <div class="card">
@@ -176,12 +194,16 @@
   <div class="card">
     <h2>可验证成果（点开即查）</h2>
     <div class="links">
+      <a class="link" href="https://github.com/jackyjinggit/co-agency-integrity" target="_blank" rel="noopener">
+        <div class="t">co-agency-integrity · 认知免疫工具包</div>
+        <div class="u">github.com/jackyjinggit/co-agency-integrity · MIT · v0.2.0 · TSA 时间戳</div>
+      </a>
       <a class="link" href="https://github.com/jackyjinggit/pdss-life-value-system" target="_blank" rel="noopener">
         <div class="t">HAI 人机协作白皮书 v1.2 final</div>
         <div class="u">github.com/jackyjinggit/pdss-life-value-system</div>
       </a>
       <a class="link" href="https://osf.io/6jdhm" target="_blank" rel="noopener">
-        <div class="t">反谄臣（FEE）论文（OSF 6jdhm）</div>
+        <div class="t">反谗臣（FEE）论文 v3.4（OSF 6jdhm）</div>
         <div class="u">osf.io/6jdhm · 800+ 轮实测</div>
       </a>
       <a class="link" href="https://github.com/jackyjinggit/xuanlan-governance-kit" target="_blank" rel="noopener">
@@ -193,8 +215,8 @@
         <div class="u">jackyjinggit.github.io/pdss-life-value-system</div>
       </a>
       <a class="link" href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener">
-        <div class="t">知乎 · 治理与 AI 协作系列</div>
-        <div class="u">zhihu.com/column/c_2064223181343347973</div>
+        <div class="t">知乎专栏 · AI协作的认知结构研究</div>
+        <div class="u">zhihu.com/column/c_2064223181343347973 · 治理系列 + 文化侧长文持续更新</div>
       </a>
       <a class="link" href="https://weibo.com/u/3069897487" target="_blank" rel="noopener">
         <div class="t">微博 · 观点与动态</div>
@@ -215,7 +237,7 @@
     <p class="en" style="margin-top:12px">本页为公开索引，内容脱敏，不含内部节点名与本地路径。对外口径守蒋平裁定：PDSS 对外只称「个人 DSS（Personal Decision Support System）」，不展开内部黑话。</p>
   </div>
 
-  <p class="foot">蒋平 (Jacky Jiang) · 个人 DSS 独立构建者 · 致招聘团队版 · 2026-08-16</p>
+  <p class="foot">蒋平 (Jacky Jiang) · 个人 DSS 独立构建者 · 致招聘团队版 · 2026-08-21</p>
 </div>
 </body>
 </html>

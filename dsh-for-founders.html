@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>蒋平 (Jacky Jiang) · 致创始与工程团队</title>
+<title>蒋平 (Jacky Jiang) · 个人展板 / 履历</title>
 <style>
   :root{
     /* DeepSeek 黑鲸鱼哲学：深邃黑底 + 鲸鱼蓝冷光 + 冷白文字 */
@@ -51,7 +51,7 @@
     padding:5px 14px;border-radius:999px;font-size:13px;letter-spacing:.5px;margin-bottom:16px;color:var(--whale-bright);
   }
   .hero h1{font-size:34px;font-weight:800;letter-spacing:.5px;margin-bottom:10px;color:#fff;text-shadow:0 2px 18px rgba(59,110,245,.35);}
-  .hero .sub{font-size:16px;opacity:.94;max-width:620px;margin:0 auto 8px;color:#D6D9E2;}
+  .hero .sub{font-size:16px;opacity:.94;max-width:640px;margin:0 auto 8px;color:#D6D9E2;}
   .hero .meta{font-size:13px;opacity:.72;margin-top:14px;color:var(--ink-soft);}
   .wrap{max-width:920px;margin:0 auto;padding:0 18px;}
   .card{
@@ -78,6 +78,12 @@
   .link:hover{transform:translateY(-2px);box-shadow:var(--glow);border-color:rgba(91,140,255,.55);background:linear-gradient(180deg,var(--card-2),rgba(22,48,122,.20));}
   .link .t{font-weight:700;color:var(--whale-bright);font-size:14.5px;}
   .link .u{font-size:12px;color:var(--ink-soft);word-break:break-all;margin-top:3px;}
+  .tl{list-style:none;margin:10px 0 0;padding:0;}
+  .tl li{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink);}
+  .tl li:last-child{border-bottom:none;}
+  .tl .d{flex:0 0 74px;font-weight:700;color:var(--whale-bright);font-size:13px;padding-top:1px;}
+  .tl .x{color:var(--ink-soft);}
+  .tl a{color:var(--whale-bright);text-decoration:none;}
   .contact{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:10px;font-size:14px;}
   .contact span{background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:10px;color:var(--ink);}
   .foot{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:36px;padding:0 18px;}
@@ -90,11 +96,11 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="badge">致创始与工程团队 · For Founders & Engineering</div>
+    <div class="badge">个人展板 · Personal Portfolio</div>
     <h1>蒋平 (Jacky Jiang)</h1>
     <p class="sub">个人 DSS（Personal Decision Support System）独立构建者 · AI 产品 / 设计 / 开发者关系交叉位</p>
     <p class="sub en">I build the "handrail" layer on top of any Agent Harness — the cognitive calibration that keeps agents from going rogue, harming users, or leaving them stranded.</p>
-    <p class="meta">重庆 · 8/18–20 在杭州（AI Hangzhou 2026）· GitHub @jackyjinggit</p>
+    <p class="meta">重庆 · 可远程 / 出差 · GitHub @jackyjinggit</p>
   </div>
 </header>
 
@@ -122,14 +128,43 @@
   </div>
 
   <div class="card">
+    <h2>轨迹（2026）</h2>
+    <ul class="tl">
+      <li><span class="d">2026-08</span><span class="x"><b>co-agency-integrity v0.2.0 开源</b> —— 认知免疫工具包：反谄媚 / 认知免疫工具箱，MIT，含国内 TSA（RFC3161）时间戳证据</span></li>
+      <li><span class="d">2026-08</span><span class="x"><b>谗臣效应（FEE）论文更新至 v3.4</b> —— 公开于 OSF（800+ 轮实测）</span></li>
+      <li><span class="d">2026-08</span><span class="x"><b>HAI 人机协作白皮书发布</b>（v1.2 final）</span></li>
+      <li><span class="d">2026-07</span><span class="x"><b>知乎专栏「AI协作的认知结构研究」开栏</b> —— 谗臣效应系列首发：不聊 AGI 恐惧，聊"当 AI 越来越会顺着你说，你的判断能力正在悄悄坍缩"</span></li>
+      <li><span class="d">2026-06</span><span class="x"><b>提出"扶手层 / 认知校准层"</b>（DSS for Agent Harness）—— 明确长期钻研的生态位</span></li>
+      <li><span class="d">2026</span><span class="x"><b>个人 DSS 从哲学构想落地为可运行开源工程</b> —— 跨窗口记忆、多 agent 协作、反谄臣检测器逐一跑通（1000+ 轮真实对话淬炼）</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>认知校准层：我实际在做的事</h2>
+    <ul>
+      <li><b>反谄臣检测（Anti-FEE）</b> —— 检测并拦下 AI 顺着用户说的谄媚回响，保护判断能力</li>
+      <li><b>执意对齐协议（IAAP）</b> —— harness-agnostic 的协议层，把"对齐"从理念变成可执行条款</li>
+      <li><b>跨窗口长期记忆与身份治理</b> —— 让同一套身份/红线/纪律在任意窗口一致生效</li>
+      <li><b>原子任务集散协议</b> —— 任务包派发 / 只读执行 / 一行回传 / 金标准验收，防 context 爆炸</li>
+      <li><b>多 agent 议会治理</b> —— 多视角并行 + 内置红队，治理层自身也可被质疑</li>
+      <li><b>效果实然检验</b> —— 区分"真实效果"与"认可幻觉"，用反事实/痕迹/对账五闸自检</li>
+    </ul>
+    <p class="en" style="margin-top:10px">全部沉淀为可插拔协议（Skill + Orchestrator），任何 Harness 接入后都有章可循。</p>
+  </div>
+
+  <div class="card">
     <h2>可验证成果（点开即查）</h2>
     <div class="links">
+      <a class="link" href="https://github.com/jackyjinggit/co-agency-integrity" target="_blank" rel="noopener">
+        <div class="t">co-agency-integrity · 认知免疫工具包</div>
+        <div class="u">github.com/jackyjinggit/co-agency-integrity · MIT · v0.2.0 · TSA 时间戳</div>
+      </a>
       <a class="link" href="https://github.com/jackyjinggit/pdss-life-value-system" target="_blank" rel="noopener">
         <div class="t">HAI 人机协作白皮书 v1.2 final</div>
         <div class="u">github.com/jackyjinggit/pdss-life-value-system</div>
       </a>
       <a class="link" href="https://osf.io/6jdhm" target="_blank" rel="noopener">
-        <div class="t">反谄臣（FEE）论文（OSF 6jdhm）</div>
+        <div class="t">反谗臣（FEE）论文 v3.4（OSF 6jdhm）</div>
         <div class="u">osf.io/6jdhm · 800+ 轮实测</div>
       </a>
       <a class="link" href="https://github.com/jackyjinggit/xuanlan-governance-kit" target="_blank" rel="noopener">
@@ -141,19 +176,15 @@
         <div class="u">harness-agnostic 协议层</div>
       </a>
       <a class="link" href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener">
-        <div class="t">文学研究样本 · 《仿生人》伪问题框架</div>
-        <div class="u">zhihu.com/column/c_2064223181343347973</div>
-      </a>
-      <a class="link" href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener">
-        <div class="t">知乎 · 治理与 AI 协作系列</div>
-        <div class="u">zhihu.com/column/c_2064223181343347973</div>
+        <div class="t">知乎专栏 · AI协作的认知结构研究</div>
+        <div class="u">zhihu.com/column/c_2064223181343347973 · 治理系列 + 文化侧长文持续更新</div>
       </a>
       <a class="link" href="https://weibo.com/u/3069897487" target="_blank" rel="noopener">
         <div class="t">微博 · 观点与动态</div>
         <div class="u">weibo.com/u/3069897487</div>
       </a>
     </div>
-    <p class="en" style="margin-top:10px">知乎治理层系列 9 篇（峰会前铺出）· 可验证，非自述。</p>
+    <p class="en" style="margin-top:10px">可验证，非自述。</p>
   </div>
 
   <div class="card">
@@ -164,13 +195,19 @@
 
   <div class="card">
     <h2>坦诚背景</h2>
-    <p>独立研究者，前游戏 UX（沈书 / 猫箱 AI）。吉林大学机械工程与自动化专业肄业（2012–2016），非 CS 科班出身——但把一个个人 AI 协作系统从哲学一步步跑成了开源工程，这或许比一纸学位更能说明执行力。</p>
+      <p>独立研究者，前游戏 UX（沈书 / 猫箱 AI）。吉林大学机械工程与自动化专业肄业（2012–2016），非 CS 科班出身——但把一个个人 AI 协作系统从哲学一步步跑成了开源工程，这或许比一纸学位更能说明执行力。</p>
+  </div>
+
+  <div class="card">
+    <h2>游戏行业视角：SOP 即标准化协作</h2>
+    <p>SOP（Standard Operating Procedure，标准操作程序）是把复杂事务拆解为清晰、可重复步骤的"说明书"。在游戏行业，它贯穿开发、运营、电竞到管理的全生命周期——开发有全流程指南，运营有版本/活动/反馈规范，电竞有局面应对解法，管理则用来降低"关键人物"风险。</p>
+    <p>这恰恰是我做个人 DSS 的同构问题：Agent Harness 团队今天面对的，正是"怎么让 AI 协作可信、可复用、不依赖某一个人盯着"。我的答案也是 SOP 思路——把认知校准、对齐检测、跨窗口记忆做成可插拔协议（Skill + Orchestrator），让任何 Harness 接入后都有章可循。前游戏 UX 的那套标准化直觉，被我搬到了 AI 协作治理上。</p>
   </div>
 
   <div class="card">
     <h2>下一步</h2>
-    <p>8/18–20 我在杭州 AI Hangzhou 峰会。15 分钟就够；不见，仓库和论文也都在。</p>
-    <p class="en" style="margin-top:6px">15 minutes is enough. If we don't meet, the repos and papers are all public.</p>
+    <p>如果你在做 Agent Harness 或 AI 产品的长期稳定与用户信任，我想补的那一小块认知校准，也许正好在你缺的那一米的终点。仓库和论文都是公开的，随时可查。</p>
+    <p class="en" style="margin-top:6px">The repos and papers are all public — verifiable before we even talk.</p>
   </div>
 
   <div class="card">
@@ -178,14 +215,14 @@
     <div class="contact">
       <span>✉️ q1070845860@hotmail.com</span>
       <span>📱 +86 13272820623</span>
-      <span>💻 GitHub @jackyjinggit</span>
+      <span>💻 <a href="https://github.com/jackyjinggit" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">GitHub @jackyjinggit</a></span>
       <span>📖 <a href="https://www.zhihu.com/column/c_2064223181343347973" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">知乎专栏</a></span>
       <span>🐦 <a href="https://weibo.com/u/3069897487" target="_blank" rel="noopener" style="color:var(--whale-bright);text-decoration:none">微博</a></span>
     </div>
     <p class="en" style="margin-top:12px">本页为公开索引，内容脱敏，不含内部节点名与本地路径。对外口径守蒋平裁定：PDSS 对外只称「个人 DSS（Personal Decision Support System）」，不展开内部黑话。</p>
   </div>
 
-  <p class="foot">蒋平 (Jacky Jiang) · 个人 DSS 独立构建者 · 致创始与工程团队版 · 2026-08-16</p>
+  <p class="foot">蒋平 (Jacky Jiang) · 个人 DSS 独立构建者 · 个人展板 / 履历版 · 2026-08-21</p>
 </div>
 </body>
 </html>
