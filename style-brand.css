@@ -1,0 +1,105 @@
+/* 蒋平 · 个人主页 v1.1 — DSH 深色设计理念（黑鲸鱼：深海暗色/极简/模块化/精准调度） */
+:root {
+  --bg: #0b1220;            /* 深海底 */
+  --bg-soft: #111a2e;       /* 面板 */
+  --bg-card: #16213a;       /* 卡片 */
+  --line: #24324f;          /* 分隔线 */
+  --text: #dbe4f3;          /* 主文本 */
+  --text-dim: #8fa3c3;      /* 次文本 */
+  --accent: #4fc3f7;        /* 鲸鱼蓝 */
+  --accent2: #ffd54f;       /* 调度金 */
+  --good: #69dba2;
+  --warn: #ffb74d;
+  --maxw: 980px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-wrap: break-word; word-break: break-word;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 统一导航骨架（8 链 · sticky 常驻） */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11, 18, 32, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 24px;
+  display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center;
+}
+.top-nav a {
+  color: var(--text-dim); font-size: .9em; padding: 4px 2px;
+  border-bottom: 2px solid transparent; white-space: nowrap;
+}
+.top-nav a:hover { color: var(--text); text-decoration: none; }
+.top-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+main { max-width: var(--maxw); margin: 0 auto; padding: 48px 24px 80px; }
+
+/* 钩子定格：醒目 + 顶格 + 锚定位 */
+.hook {
+  background: linear-gradient(135deg, #0e1830 0%, #12264a 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 64px 24px;
+  text-align: center;
+  margin: calc(50% - 50vw); width: auto;   /* 顶格全宽，禁用 width:100vw */
+}
+.hook .tag { color: var(--accent2); letter-spacing: .2em; font-size: .8em; text-transform: uppercase; }
+.hook h1 {
+  font-size: clamp(1.6em, 4vw, 2.6em);
+  font-weight: 700; margin: 14px auto 10px; max-width: 760px; line-height: 1.35;
+}
+.hook .sub { color: var(--text-dim); font-size: 1.02em; max-width: 640px; margin: 0 auto; }
+
+h2 { font-size: 1.45em; margin: 48px 0 18px; color: var(--text); letter-spacing: .02em; }
+h2 .en { color: var(--accent); font-size: .62em; vertical-align: middle; margin-left: 8px; font-weight: 400; letter-spacing: .08em; }
+h3 { font-size: 1.12em; margin: 26px 0 10px; color: var(--accent); }
+
+.lead { color: var(--text-dim); margin-bottom: 14px; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 24px; margin: 14px 0;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.grid .card { margin: 0; }
+.card h4 { color: var(--accent); font-size: 1.05em; margin-bottom: 6px; }
+.card .status { display: inline-block; font-size: .78em; padding: 1px 10px; border-radius: 10px; margin-left: 6px; vertical-align: 2px; }
+.status.live { background: rgba(105, 219, 162, .14); color: var(--good); }
+.status.wip  { background: rgba(255, 183, 77, .14);  color: var(--warn); }
+.card p { color: var(--text-dim); font-size: .92em; }
+
+.btn {
+  display: inline-block; background: var(--accent); color: #0b1220; font-weight: 600;
+  padding: 10px 22px; border-radius: 8px; margin-top: 14px; font-size: .92em;
+}
+.btn:hover { background: #7fd5ff; text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+ul.clean { list-style: none; }
+ul.clean li { padding: 5px 0 5px 22px; position: relative; color: var(--text-dim); }
+ul.clean li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .92em; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--accent); font-weight: 600; white-space: nowrap; }
+td { color: var(--text-dim); }
+td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+
+footer {
+  border-top: 1px solid var(--line); color: var(--text-dim);
+  padding: 26px 24px 40px; text-align: center; font-size: .85em;
+}
+footer a { color: var(--text-dim); }
+footer a:hover { color: var(--accent); }
+
+@media (max-width: 640px) {
+  main { padding: 32px 18px 60px; }
+  .hook { padding: 48px 18px; }
+  .top-nav { padding: 8px 14px; gap: 4px 12px; }
+}
