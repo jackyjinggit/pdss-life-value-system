@@ -17,12 +17,14 @@
     text-rendering: optimizeLegibility;
   }
   .readme-box {
-    background: #f5f5f0;
+    background: rgba(255,255,255,0.05);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     padding: 1.2rem 1.4rem;
     margin: 1.2rem 0;
-    border-radius: 2px;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .readme-box h3 { margin-top: 0.4rem; color: var(--accent); }
   .readme-box ol, .readme-box ul { margin-left: 1.3rem; }
@@ -33,14 +35,14 @@
   .copy-area textarea {
     width: 100%;
     min-height: 420px;
-    background: #fafaf8;
+    background: rgba(2,6,23,0.55);
     border: 1px solid var(--border);
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 1rem;
     font-family: "SF Mono", "Fira Code", "Consolas", monospace;
     font-size: 0.82rem;
     line-height: 1.6;
-    color: #222;
+    color: #E2E8F0;
     resize: vertical;
     box-sizing: border-box;
   }
@@ -52,18 +54,18 @@
     color: #fff;
     border: none;
     padding: 0.45rem 1rem;
-    border-radius: 2px;
+    border-radius: 8px;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, filter 0.2s;
   }
   .copy-btn:hover { background: var(--accent-light); }
-  .copy-btn.copied { background: #2a7a3a; }
+  .copy-btn.copied { background: #10B981; }
   .judge-table td, .judge-table th { font-size: 0.88rem; }
-  .level-green { color: #2a7a3a; font-weight: 600; }
-  .level-yellow { color: #a07a1a; font-weight: 600; }
-  .level-orange { color: #c05a1a; font-weight: 600; }
-  .level-red { color: #b02a2a; font-weight: 600; }
+  .level-green { color: #34D399; font-weight: 600; }
+  .level-yellow { color: #FBBF24; font-weight: 600; }
+  .level-orange { color: #FB923C; font-weight: 600; }
+  .level-red { color: #F87171; font-weight: 600; }
   .step-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
 </style>
 </head>
@@ -95,7 +97,7 @@
 
 <main class="page-content">
 
-  <div class="readme-box" style="border-left-color:var(--accent);background:#eef4f0;">
+  <div class="readme-box" style="border-left-color:var(--accent);background:var(--surface);">
     <h3>此窗口在 HAIDG 体系中的位置</h3>
     <p><strong>HAIDG（HAI Deep Governance，HAI 深度治理）→ 第四层 · 检测协议（IAAP）→ 即用即测窗口。</strong> 这是 IAAP（Intent Alignment Audit Protocol，意图对齐审计协议）的"普通人版本"——IAAP 给工程师完整协议，这里给任何人一段即贴即用的文本。返回 <a href="whitepaper_v2.html" target="_blank">HAIDG 分层导航</a>。</p>
   </div>
